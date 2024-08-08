@@ -17,4 +17,5 @@ class Album(AlbumBase):
     tracks: List[Track] = []
 
     class Config:
+        from_attributes = True
         orm_mode = True

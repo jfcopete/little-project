@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String, ForeignKey, Enum
 from sqlalchemy.orm import relationship
 from ..database import Base
-from .medios import Medios
+from .medio import Medios
 
 class Album(Base):
     __tablename__ = "albums"
