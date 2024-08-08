@@ -24,19 +24,18 @@ def delete_album(db: Session, album_id: int):
     """
     Deletes an album by id.
     """
-    db_album = get_album(db=db, album_id=album_id)
-    db.delete(db_album)
-    db.commit()
-    return db_album
+    return album_repository.delete_album(db=db, album_id=album_id)
 
 def get_albums_by_user(db: Session, user_id: int):
     """
     Gets all albums by user id.
     """
-    return db.query(album_schema.Album).filter(album_schema.Album.user_id == user_id).all()
+    return album_repository.get_albums_by_user(db=db, user_id=user_id)
 
 def get_album_by_title(db: Session, title: str):
     """
     Gets an album by title.
     """
-    return db.query(album_schema.Album).filter(album_schema.Album.title == title).first
+    return album_repository.get_album_by_title(db=db, title=title)
+
+

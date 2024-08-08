@@ -1,10 +1,10 @@
 # Suggested code may be subject to a license. Learn more: ~LicenseLog:757152362.
-from pydatic import BaseModel
+from pydantic import BaseModel
 from typing import List
 
 class TrackBase(BaseModel):
     title: str
-    minutess: int
+    minutes: int
     seconds: int
     artist: str
 

@@ -11,11 +11,8 @@ def get_track(db: Session, track_id: int):
 def get_tracks(db: Session, skip: int = 0, limit: int = 10):
     return track_repository.get_tracks(db=db, skip=skip, limit=limit)
 
-def get_tracks_by_album(db: Session, album_id: int):
-    return db.query(track_schema.Track).filter(track_schema.Track.album_id == album_id).all()
-
 def delete_track(db: Session, track_id: int):
-    db_track = get_track(db=db, track_id=track_id)
-    db.delete(db_track)
-    db.commit()
-    return db_track
+    return track_repository.delete_track(db=db, track_id=track_id)
+
+def get_tracks_by_album(db: Session, album_id: int):
+    return track_repository.get_tracks_by_album(db=db, album_id=album_id)

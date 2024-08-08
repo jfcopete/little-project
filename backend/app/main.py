@@ -6,8 +6,8 @@ app = FastAPI()
 Base.metadata.create_all(bind=engine)
 
 app.include_router(user_router.router)
-#app.include_router(album_router.router)
-#app.include_router(track_router.router)
+app.include_router(album_router.router)
+app.include_router(track_router.router)
 
 
 if __name__ == "__main__":

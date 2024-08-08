@@ -9,6 +9,7 @@ class Album(Base):
     title = Column(String, index=True)
     year = Column(Integer)
     description = Column(String)
+    medio = Column(Enum(Medios))
     user_id = Column(Integer, ForeignKey("users.id"))
     user = relationship("User", back_populates="albums")
     tracks = relationship("Track", back_populates="album")
